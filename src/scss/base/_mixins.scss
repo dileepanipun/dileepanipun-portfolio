@@ -1,0 +1,59 @@
+@use "variables" as *;
+
+// Glass Effect
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+}
+
+// Transitions
+$transition-base: all 0.3s ease;
+$transition-slow: all 0.5s ease;
+
+@mixin hover-lift {
+  transition: $transition-base;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Media Queries
+@mixin mobile {
+  @media (max-width: $mobile) { @content; }
+}
+
+@mixin tablet {
+  @media (min-width: $mobile) and (max-width: $tablet) { @content; }
+}
+
+@mixin laptop {
+  @media (min-width: $tablet) and (max-width: $laptop) { @content; }
+}
+
+@mixin desktop {
+  @media (min-width: $laptop) { @content; }
+}
+
+// Animated Link
+@mixin animated-link {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $primary-blue;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
+} 

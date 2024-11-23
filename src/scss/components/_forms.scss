@@ -1,0 +1,120 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.contact-form {
+  @include glass-effect;
+  padding: $space-8;
+  margin-top: $space-8;
+  
+  .form-group {
+    margin-bottom: $space-6;
+    
+    .form-label {
+      display: block;
+      margin-bottom: $space-2;
+      color: $text-secondary;
+      font-weight: 500;
+    }
+    
+    input,
+    textarea {
+      width: 100%;
+      padding: $space-3;
+      background: rgba($gradient-light, 0.3);
+      border: 1px solid rgba($text-secondary, 0.1);
+      border-radius: 8px;
+      color: $text-primary;
+      transition: all 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: $primary-blue;
+        background: rgba($gradient-light, 0.5);
+        box-shadow: 0 0 0 2px rgba($primary-blue, 0.2);
+      }
+    }
+    
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+  }
+  
+  .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $space-4;
+    
+    label {
+      display: flex;
+      align-items: center;
+      gap: $space-2;
+      cursor: pointer;
+      
+      input[type="checkbox"] {
+        width: auto;
+      }
+    }
+  }
+}
+
+.project-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $space-4;
+    margin-top: $space-2;
+
+    .project-type {
+        position: relative;
+        cursor: pointer;
+
+        input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+
+            &:checked + .project-type__content {
+                background: rgba($primary-blue, 0.1);
+                border-color: $primary-blue;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba($primary-blue, 0.2);
+
+                i {
+                    color: $primary-blue;
+                }
+            }
+
+            &:focus + .project-type__content {
+                box-shadow: 0 0 0 2px rgba($primary-blue, 0.2);
+            }
+        }
+
+        &__content {
+            display: flex;
+            align-items: center;
+            gap: $space-3;
+            padding: $space-4;
+            border-radius: 8px;
+            background: rgba($gradient-light, 0.3);
+            border: 1px solid rgba($text-secondary, 0.1);
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: rgba($gradient-light, 0.5);
+                transform: translateY(-2px);
+            }
+
+            i {
+                color: $text-secondary;
+                transition: color 0.3s ease;
+            }
+
+            span {
+                color: $text-secondary;
+                font-size: $text-sm;
+                font-weight: 500;
+            }
+        }
+    }
+} 

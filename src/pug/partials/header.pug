@@ -1,0 +1,20 @@
+header.header
+    nav.nav
+        a.logo(href="/") DN
+        ul.nav-links
+            li: a.active(href="#") Home
+            li: a(href="#about") About
+            li: a(href="#projects") Projects
+            li: a(href="#contact") Contact
+        
+        button.menu-button(aria-label="Toggle menu")
+            i(data-lucide="menu")
+
+    .mobile-menu
+        button.close-button(aria-label="Close menu")
+            i(data-lucide="x")
+        ul.nav-links
+            li: a.active(href="#") Home
+            li: a(href="#about") About
+            li: a(href="#projects") Projects
+            li: a(href="#contact") Contact 

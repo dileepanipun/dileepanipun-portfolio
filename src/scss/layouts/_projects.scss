@@ -1,0 +1,21 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.projects {
+  padding: $space-16 0;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: $space-12;
+  }
+
+  .project-grid {
+    display: grid;
+    gap: $space-8;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+} 

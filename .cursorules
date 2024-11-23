@@ -1,0 +1,79 @@
+{
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "printWidth": 80,
+    "endOfLine": "auto",
+    "overrides": [
+        {
+            "files": "*.pug",
+            "options": {
+                "parser": "pug",
+                "tabWidth": 2
+            }
+        },
+        {
+            "files": "*.scss",
+            "options": {
+                "parser": "scss",
+                "tabWidth": 2,
+                "scss": {
+                    "parser": "@scss/latest",
+                    "useModules": true,
+                    "useNesting": true,
+                    "useCustomProperties": true,
+                    "useLogicalProperties": true,
+                    "useModernSyntax": true
+                }
+            }
+        },
+        {
+            "files": ["*.js", "*.jsx"],
+            "options": {
+                "parser": "babel",
+                "tabWidth": 2,
+                "ecmaVersion": "latest",
+                "sourceType": "module",
+                "ecmaFeatures": {
+                    "jsx": true,
+                    "modules": true,
+                    "experimentalObjectRestSpread": true,
+                    "arrowFunctions": true,
+                    "classes": true,
+                    "spread": true,
+                    "destructuring": true,
+                    "templateStrings": true,
+                    "defaultParams": true,
+                    "restParams": true,
+                    "asyncAwait": true,
+                    "nullishCoalescing": true,
+                    "optionalChaining": true
+                }
+            }
+        },
+        {
+            "files": "*.json",
+            "options": {
+                "parser": "json",
+                "tabWidth": 2
+            }
+        }
+    ],
+    "pugAttributeSeparator": "none",
+    "pugClassLocation": "before-attributes",
+    "pugIdLocation": "before-attributes",
+    "pugWrapAttributesThreshold": 1,
+    "parserOptions": {
+        "ecmaVersion": 2024,
+        "sourceType": "module"
+    },
+    "env": {
+        "es2024": true,
+        "browser": true,
+        "node": true
+    }
+} 
