@@ -31,3 +31,10 @@ jobs:
 
     - name: Build
       run: gulp build  # Specifically calling gulp build instead of just gulp
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'  # Only deploy on main branch
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist  # Replace with your build output directory
