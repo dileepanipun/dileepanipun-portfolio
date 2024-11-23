@@ -1,0 +1,215 @@
+extends ../layouts/default
+
+block content
+  main.main
+    // Hero Section
+    section.hero
+      .container
+        .hero__content
+          .hero__image-container
+            img.hero__image(src="https://avatars.githubusercontent.com/u/46289200?v=4" alt="Dileepa Nipun")
+          .hero__text
+            .logo DN
+            h1.hero__title
+                span.hero__title-main Building Tomorrow's Web
+                span.hero__title-sub Where Angular Precision Meets Creative Design
+            p.hero__subtitle Senior Frontend Developer & UI/UX Designer
+            p.hero__location 
+              i(data-lucide="map-pin")
+              | Based in Galle, Sri Lanka
+            p.hero__status 
+              span.status-badge Available for
+              | Freelance Projects, New Opportunities, and Consultations
+            .hero__cta
+              a.button-primary(href="https://calendly.com/dileepanipun" data-cursor-text="Schedule")
+                i(data-lucide="calendar")
+                | Schedule a Call
+              a.button-secondary(href="#projects" data-cursor-text="View")
+                i(data-lucide="eye")
+                | View Portfolio
+
+    // About Section
+    section.about#about
+      .container
+        h2.section-title About Me
+        p.about__text
+          | As a passionate frontend developer and UI/UX designer, I blend technical precision 
+          | with creative design thinking to build impactful web solutions. My expertise spans 
+          | Angular development and user experience design, creating digital experiences that 
+          | not only look beautiful but drive real business results.
+
+        .skills
+          .skills__group
+            h3 Frontend Development
+            ul.skills__list
+              li Angular (Advanced)
+              li TypeScript (Advanced)
+              li HTML5/CSS3
+              li SCSS/Bootstrap
+              li JavaScript/jQuery
+              li RESTful APIs Integration
+
+          .skills__group
+            h3 Design Expertise
+            ul.skills__list
+              li Figma (Expert)
+              li Adobe XD (Expert)
+              li Adobe Photoshop (Expert)
+              li Adobe Premiere Pro (Intermediate)
+              li Adobe Illustrator (Intermediate)
+
+          .skills__group
+            h3 Specialized Skills
+            ul.skills__list
+              li Logo Design
+              li Prototyping
+              li Visual Design
+              li Social Media Design
+              li Brand Identity Development
+              li Mobile App Development
+
+    // Projects Section
+    section.projects#projects
+      .container
+        h2.section-title Featured Projects
+        .project-grid
+          // Prime Market Terminal
+          article.project-card
+            .project-card__image
+              img(src="https://primemarket-terminal.com/images/sucess-device.png" alt="Prime Market Terminal")
+            .project-card__content
+              h3 Prime Market Terminal Trading Platform
+              p.project-duration Duration: 4 months (January 2023 – April 2023)
+              p.project-role Role: Lead UI/UX Designer
+              
+              h4 Challenge
+              p
+                | The client needed a modern trading platform with a highly intuitive interface 
+                | that could cater to professional traders.
+              
+              h4 Solution & Impact
+              ul
+                li Designed an intuitive trading terminal prototype
+                li Developed comprehensive branding guidelines
+                li Created engaging social media presence
+                li 
+                  strong Result: 
+                  | 30% increase in platform engagement post-launch
+              
+              .project-links
+                a.button-secondary(href="#") Case Study
+                a.button-secondary(href="#") Live Project
+
+          // Additional projects follow same structure...if 
+          // The Peak Performance Trading Website
+          // Wedding Vendor Web
+          // Pharmacy Doctor Channeling App
+
+    // Testimonials Section
+    section.testimonials
+      .container
+        h2.section-title Client Testimonials
+        .testimonials-grid
+          // Prime Market Terminal CEO
+          .testimonial-card
+            .testimonial-content
+              i(data-lucide="quote")
+              p The team delivered an outstanding trading platform prototype, perfectly aligning with our vision. Their attention to detail and seamless design work were exceptional.
+            .testimonial-author
+              .author-info
+                h4 John Smith
+                span CEO, Prime Market Terminal
+
+          // Peak Performance Trading Founder
+          .testimonial-card
+            .testimonial-content
+              i(data-lucide="quote")
+              p Their expertise in UI/UX design and branding elevated our mentorship program's online presence. The website and digital assets exceeded all expectations.
+            .testimonial-author
+              .author-info
+                h4 Sarah Johnson
+                span Founder, Peak Performance Trading
+
+          // MedEase Solutions Head
+          .testimonial-card
+            .testimonial-content
+              i(data-lucide="quote")
+              p The doctor channeling app developed by the team streamlined our operations significantly. It's intuitive, efficient, and has been a game-changer for our patients and staff.
+            .testimonial-author
+              .author-info
+                h4 Dr. Andrew Lee
+                span Head of Operations, MedEase Solutions
+
+    // Contact Section
+    section.contact#contact
+      .container
+        h2.section-title Let's Connect
+        p.contact__intro Ready to discuss your project?
+
+        .contact__info
+          .contact__links
+            a(href="mailto:dileepa9646@gmail.com") 
+              i(data-lucide="mail")
+              | dileepa9646@gmail.com
+            a(href="https://calendly.com/dileepanipun") 
+              i(data-lucide="calendar")
+              | Schedule a Call
+            a(href="https://www.linkedin.com/in/dileepa-nipun-salinda-270013169/") 
+              i(data-lucide="linkedin")
+              | LinkedIn
+            a(href="https://www.behance.net/dileepanipuns") 
+              i(data-lucide="behance")
+              | Behance
+            a(href="https://dribbble.com/dileepanipun") 
+              i(data-lucide="dribbble")
+              | Dribbble
+            a(href="https://github.com/dileepanipun") 
+              i(data-lucide="github")
+              | GitHub
+
+        form.contact-form
+          .form-group
+            label(for="name") Name*
+            input#name(type="text" required)
+          
+          .form-group
+            label(for="email") Email*
+            input#email(type="email" required)
+          
+          .form-group
+            label(for="company") Company
+            input#company(type="text")
+          
+          .form-group
+            label.form-label Project Type
+            .project-types
+                label.project-type
+                    input(type="checkbox" name="project-type" value="frontend")
+                    span.project-type__content
+                        i(data-lucide="code-2")
+                        span Frontend Development
+                label.project-type
+                    input(type="checkbox" name="project-type" value="uiux")
+                    span.project-type__content
+                        i(data-lucide="palette")
+                        span UI/UX Design
+                label.project-type
+                    input(type="checkbox" name="project-type" value="mobile")
+                    span.project-type__content
+                        i(data-lucide="smartphone")
+                        span Mobile Development
+                label.project-type
+                    input(type="checkbox" name="project-type" value="consultation")
+                    span.project-type__content
+                        i(data-lucide="message-square")
+                        span Consultation
+          
+          .form-group
+            label(for="timeline") Project Timeline
+            input#timeline(type="text")
+          
+          .form-group
+            label(for="message") Message*
+            textarea#message(required)
+          
+          button.button-primary(type="submit") Send Message

@@ -1,0 +1,155 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  
+  // Glass effect header
+  &.scrolled {
+    @include glass-effect;
+    padding: $space-4 0;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: $space-6 $container-padding;
+
+    .logo {
+      font-family: $mono-font;
+      font-size: $text-xl;
+      font-weight: 600;
+      background: linear-gradient(45deg, $primary-blue, $accent-blue);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: $transition-base;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+
+    &-links {
+      display: flex;
+      list-style: none;
+      gap: $space-8;
+
+      li {
+        position: relative;
+      }
+
+      a {
+        color: $text-secondary;
+        text-decoration: none;
+        font-size: $text-sm;
+        font-weight: 500;
+        padding: $space-2;
+        transition: $transition-base;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: $primary-blue;
+          transition: width 0.3s ease;
+        }
+
+        &:hover {
+          color: $text-primary;
+          
+          &::before {
+            width: 100%;
+          }
+        }
+
+        &.active {
+          color: $primary-blue;
+          
+          &::before {
+            width: 100%;
+            background: $primary-blue;
+          }
+        }
+      }
+
+      @include mobile {
+        display: none; // For mobile menu
+      }
+    }
+
+    // Mobile menu button
+    .menu-button {
+      display: none;
+      background: none;
+      border: none;
+      color: $text-primary;
+      font-size: $text-xl;
+      cursor: pointer;
+      padding: $space-2;
+      
+      @include mobile {
+        display: block;
+      }
+    }
+  }
+
+  // Mobile menu
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba($primary-dark, 0.95);
+    padding: $space-16 $space-4;
+    
+    &.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $space-8;
+
+      a {
+        font-size: $text-xl;
+        color: $text-primary;
+        
+        &:hover {
+          color: $primary-blue;
+        }
+      }
+    }
+
+    .close-button {
+      position: absolute;
+      top: $space-6;
+      right: $space-6;
+      color: $text-primary;
+      font-size: $text-xl;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+} 

@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Dileepa Nipun - Frontend Developer & UI/UX Designer
+        
+        // Fonts
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet")
+        
+        // Lucide Icons
+        script(src="https://unpkg.com/lucide@latest")
+        
+        // Custom styles
+        link(rel="stylesheet" href="css/main.css")
+    body
+        // Custom cursor
+        .custom-cursor
+            .custom-cursor-dot
+            .custom-cursor-text Click
+        
+        // Header
+        include ../partials/header
+        
+        // Main content
+        block content
+        
+        // Footer
+        include ../partials/footer
+        
+        // Scripts
+        script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+        script(src="js/main.js")
+        script lucide.createIcons()
+        script(src="js/webgl-background.js")
+        script.
+            new ParticlesBackground();

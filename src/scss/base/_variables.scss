@@ -1,0 +1,96 @@
+// Primary Colors
+$primary-blue: #00ff9d;
+$primary-dark: #0a0a0a;
+$primary-white: #ffffff;
+$accent-blue: #00ccbb;
+
+// Supporting Colors
+$gradient-dark: #050505;
+$gradient-light: #101010;
+$overlay-dark: rgba(0, 0, 0, 0.7);
+$success: #4CAF50;
+$error: #FF5252;
+
+// Text Colors
+$text-primary: #ffffff;
+$text-secondary: rgba(255, 255, 255, 0.8);
+$text-muted: rgba(255, 255, 255, 0.6);
+
+// Font Face Declarations
+@font-face {
+    font-family: 'Earthr';
+    src: url('https://cdn.prod.website-files.com/65e87f68dc636e71667a539c/65f8312a5e19e36175fab4fd_RoobertLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Earthr';
+    src: url('https://cdn.prod.website-files.com/65e87f68dc636e71667a539c/65f30a11ce80423dfb4ba6e6_RoobertRegular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Earthr';
+    src: url('https://cdn.prod.website-files.com/65e87f68dc636e71667a539c/65f30a106811933849dc38af_RoobertMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Earthr';
+    src: url('https://cdn.prod.website-files.com/65e87f68dc636e71667a539c/65f30a10b8bb530993767f84_RoobertSemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Earthr';
+    src: url('https://cdn.prod.website-files.com/65e87f68dc636e71667a539c/65f30a1067106e9429cd8df3_RoobertBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+// Font Stack
+$primary-font: 'Earthr', sans-serif;
+$heading-font: 'Earthr', sans-serif;
+$mono-font: 'Fira Code', monospace;
+
+// Updated Font Sizes (starting from ~20px base)
+$text-xs: 1rem;          // 16px
+$text-sm: 1.25rem;       // 20px
+$text-base: 1.375rem;    // 22px
+$text-lg: 1.5rem;        // 24px
+$text-xl: 1.75rem;       // 28px
+$text-2xl: 2rem;         // 32px
+$text-3xl: 2.5rem;       // 40px
+$text-4xl: 3rem;         // 48px
+$text-5xl: 3.75rem;      // 60px
+$text-6xl: 4.5rem;       // 72px
+
+// Layout & Spacing
+$container-max: 1400px;  // Increased to accommodate larger text
+$container-padding: 2rem;
+
+// Spacing Scale (adjusted for larger text)
+$space-1: 0.5rem;      // 8px
+$space-2: 1rem;        // 16px
+$space-3: 1.5rem;      // 24px
+$space-4: 2rem;        // 32px
+$space-6: 3rem;        // 48px
+$space-8: 4rem;        // 64px
+$space-12: 6rem;       // 96px
+$space-16: 8rem;       // 128px
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1280px;
+ 

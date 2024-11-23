@@ -1,0 +1,41 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.button {
+  &-primary {
+    background: linear-gradient(45deg, $primary-blue, $accent-blue);
+    padding: $space-3 $space-6;
+    border-radius: 2rem;
+    color: $primary-dark;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 255, 157, 0.3);
+    }
+  }
+
+  &-secondary {
+    @include glass-effect;
+    padding: $space-3 $space-6;
+    color: $text-primary;
+    text-decoration: none;
+    display: inline-block;
+    
+    &:hover {
+      border-color: $primary-blue;
+    }
+  }
+
+  &-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    
+    i {
+      font-size: $text-lg;
+    }
+  }
+} 

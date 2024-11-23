@@ -1,0 +1,215 @@
+@use "sass:color";
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.testimonials {
+    padding: $space-16 0;
+    position: relative;
+    overflow: hidden;
+
+    // Background effect
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            180deg,
+            transparent,
+            rgba($gradient-dark, 0.5) 50%,
+            transparent
+        );
+        pointer-events: none;
+    }
+
+    .section-title {
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: $space-8;
+        margin-top: $space-8;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.testimonial-card {
+    @include glass-effect;
+    padding: $space-8;
+    border-radius: 16px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    background: rgba($gradient-dark, 0.3);
+    opacity: 0;
+    transform: translateY(40px);
+
+    &.reveal {
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        padding: 1px;
+        background: linear-gradient(
+            45deg,
+            transparent,
+            rgba($primary-blue, 0.3),
+            transparent
+        );
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+        transform: translateY(-8px) scale(1.02);
+        background: rgba($gradient-dark, 0.4);
+        box-shadow: 0 20px 40px rgba($primary-dark, 0.4);
+
+        &::before {
+            opacity: 1;
+        }
+
+        .testimonial-content {
+            i {
+                color: rgba($primary-blue, 0.4);
+                transform: rotate(-10deg) scale(1.2);
+            }
+
+            p {
+                color: $text-primary;
+            }
+        }
+
+        .author-info {
+            h4 {
+                background: linear-gradient(45deg, $primary-blue, $accent-blue);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+    }
+
+    .testimonial-content {
+        position: relative;
+        margin-bottom: $space-6;
+        padding: $space-8 $space-6 $space-6;
+
+        i {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: rgba($primary-blue, 0.2);
+            width: 32px;
+            height: 32px;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: center;
+            stroke-width: 1.5;
+        }
+
+        p {
+            color: $text-secondary;
+            font-size: $text-lg;
+            line-height: 1.8;
+            font-style: italic;
+            margin-top: $space-4;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .testimonial-author {
+        border-top: 1px solid rgba($text-secondary, 0.1);
+        padding-top: $space-4;
+        margin-top: $space-4;
+        transition: all 0.3s ease;
+
+        .author-info {
+            padding-left: $space-8;
+
+            h4 {
+                font-size: $text-base;
+                font-weight: 600;
+                margin-bottom: $space-1;
+                transition: all 0.3s ease;
+            }
+
+            span {
+                color: $text-muted;
+                font-size: $text-sm;
+                transition: color 0.3s ease;
+            }
+        }
+    }
+
+    @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{$i * 0.2}s;
+        }
+    }
+
+    // Different accent colors for each card
+    &:nth-child(1) {
+        &::before {
+            background: linear-gradient(45deg, transparent, rgba($primary-blue, 0.8), transparent);
+        }
+    }
+
+    &:nth-child(2) {
+        &::before {
+            background: linear-gradient(45deg, transparent, rgba($accent-blue, 0.8), transparent);
+        }
+    }
+
+    &:nth-child(3) {
+        &::before {
+            background: linear-gradient(
+                45deg, 
+                transparent, 
+                rgba(color.mix($primary-blue, $accent-blue, 50%), 0.8),
+                transparent
+            );
+        }
+    }
+}
+
+// Animations
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Add Intersection Observer for reveal animations
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    &.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

@@ -1,0 +1,87 @@
+// Base
+@use "base" as *;
+
+// Components
+@use "components/buttons";
+@use "components/cards";
+@use "components/forms";
+@use "components/testimonials";
+
+// Layouts
+@use "layouts/header";
+@use "layouts/footer";
+@use "layouts/hero";
+@use "layouts/projects";
+@use "layouts/about";
+@use "layouts/contact";
+
+// Hide default cursor
+body {
+  background-color: $primary-dark;
+  color: $text-primary;
+  font-family: $primary-font;
+  cursor: none !important;
+
+  * {
+    cursor: none !important;
+  }
+}
+
+// Simple custom cursor
+.custom-cursor {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+
+  // Main dot
+  &-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: $primary-blue;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease;
+    box-shadow: 0 0 10px rgba($primary-blue, 0.5),
+                0 0 20px rgba($primary-blue, 0.3);
+  }
+
+  // Simple text badge
+  &-text {
+    position: fixed;
+    background: $primary-blue;
+    color: $primary-dark;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 15px rgba($primary-blue, 0.3);
+    letter-spacing: 0.5px;
+  }
+
+  // Hover state
+  &.clickable {
+    .custom-cursor-text {
+      opacity: 1;
+    }
+
+    .custom-cursor-dot {
+      transform: translate(-50%, -50%) scale(1.2);
+      box-shadow: 0 0 15px rgba($primary-blue, 0.6),
+                  0 0 30px rgba($primary-blue, 0.4);
+    }
+  }
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+.container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+} 
